@@ -1,5 +1,11 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/faciop-client/'
+  }
+} : {}
 
 export default {
+  ...routerBase,
   mode: 'spa',
   /*
   ** Headers of the page
@@ -39,7 +45,10 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
+    axios: {
+  },
   /*
   ** Build configuration
   */
