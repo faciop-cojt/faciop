@@ -1,14 +1,28 @@
 <template>
   <div>
-    こんにちは
-    <nuxt />
+    <Header />
+    <main>
+      <nuxt />
+    </main>
+    <Footer />
   </div>
 </template>
 
+<script>
+import Header from "@/components/header.vue"; // headerをインポート
+import Footer from "@/components/footer.vue"; // footerをインポート
+export default {
+  components: {
+    Header,
+    Footer
+  }
+};
+</script>
+
 <style>
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;

@@ -1,6 +1,7 @@
 <template>
-<div>
+<div class="container">
     <div>
+        {{pid}}
         {{parseInt($route.query.dp)}}
     </div>
 </div>
@@ -10,9 +11,14 @@
 export default {
   data() {
     return {
-      data: []
+      data: [],
+      pid: 1
     };
   },
+//   asyncData (context) {
+//     console.log(context);
+//     return { pid: context.query.dp }
+//   },
   async asyncData({ app }) {
     //goodIDを指定して単体のデータが取ってこれるといいなあ
     const getUrl =
