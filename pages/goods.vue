@@ -4,7 +4,7 @@
     <!-- <div class="pagination">
       <div class="total">ページ {{ page }}/{{ totalPage }}</div>
     </div> -->
-    <div class="cards">
+    <!-- <div class="cards"> -->
       <div v-for="row in items.data" :key="row.goodsID" class="card">
         <b-card
           :title="row.name"
@@ -23,7 +23,7 @@
           </nuxt-link>
         </b-card>
       </div>
-    </div>
+    <!-- </div> -->
   </div>
 </template>
 
