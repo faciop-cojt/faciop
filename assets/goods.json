@@ -1,0 +1,93 @@
+[
+  {
+    "goodsID": 1,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  },
+  {
+    "goodsID": 2,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  },
+  {
+    "goodsID": 3,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  },
+  {
+    "goodsID": 4,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  },
+  {
+    "goodsID": 5,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  },
+  {
+    "goodsID": 6,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  },
+  {
+    "goodsID": 7,
+    "name": "あ",
+    "shop": "あ",
+    "description": "あああ",
+    "data": "https://google.com",
+    "price": "100",
+    "category": "glass",
+    "link": "https://google.com",
+    "thumb": "https://cdn4.buysellads.net/uu/1/41369/1551199042-Adobe_Stock_260x200-3.jpg",
+    "picture": ["", ""],
+    "date": "2015/12/15 23:30:59"
+  }
+]
