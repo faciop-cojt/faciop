@@ -10,12 +10,11 @@
         <b-list-group-item
           >ショップID: {{ items.data.shopid }}</b-list-group-item
         >
+        <b-list-group-item>説明: {{ stringToArray }}</b-list-group-item>
         <b-list-group-item
-          >説明: {{ items.data.description }}</b-list-group-item
-        >
-        <b-list-group-item
-          >購入サイトへ！(外部): {{ items.data.link }}</b-list-group-item
-        >
+          >購入サイトへ！(外部):
+          <a :href="items.data.link">{{ items.data.link }}</a>
+        </b-list-group-item>
       </b-list-group>
     </div>
   </div>
@@ -29,14 +28,14 @@ export default {
       dp: ""
     };
   },
-  // created() {
-  //   this.setQuery()
-  // },
-  // methods: {
-  //   setQuery() {
-  //     this.dp = this.$route.query.dp || ''
-  //   },
-  // },
+  computed: {
+    stringToArray: function() {
+      return this.items.data.description
+        .replace(/[\[\]\"]/g, "")
+        .split(",")
+        .join("\n");
+    }
+  },
   async asyncData({ app, query }) {
     //goodIDを指定して単体のデータが取ってこれるといいなあ
     const getUrl = `https://immense-brook-99073.herokuapp.com/api/v1/goods/${query.dp}`;
