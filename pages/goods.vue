@@ -4,31 +4,17 @@
     <!-- <div class="pagination">
       <div class="total">ページ {{ page }}/{{ totalPage }}</div>
     </div> -->
-    <div class="cards">
-      <div v-for="row in items.data" :key="row.goodsID" class="card">
-        <b-card
-          :title="row.name"
-          :img-src="row.thumbnail"
-          img-alt="thumbnail"
-          img-top
-          tag="good"
-          style="max-width: 20rem;"
-          class="mb-2"
-        >
-          <b-card-text>
-            {{ row.description }}
-          </b-card-text>
-          <nuxt-link :to="{ path: '/good', query: { dp: row.id } }">
-            リンク
-          </nuxt-link>
-        </b-card>
-      </div>
-    </div>
+    <GoodsCards :items="items" />
   </div>
 </template>
 
 <script>
+import GoodsCards from "@/components/goodsCards.vue";
+
 export default {
+  components: {
+    GoodsCards
+  },
   data() {
     return {
       items: [],
@@ -45,18 +31,19 @@ export default {
       // totalPage: Math.ceil(response.length / 10),
       // count: response.length
     };
+  },
+  //メソッド, ページレンダリングの中で使用
+  //算出プロパティ, レンダリング前に内部的なデータを処理して返す
+  computed: {
+    filterItems() {
+      console.log(this.items.data);
+      return this.items.data.slice(
+        (this.page - 1) * this.perPage,
+        this.page * this.perPage
+      );
+    }
   }
 };
-//   computed: {
-//     filterItems() {
-//       console.log(this.items.data);
-//       return this.items.data.slice(
-//         (this.page - 1) * this.perPage,
-//         this.page * this.perPage
-//       );
-//     }
-//   }
-// };
 </script>
 
 <style scoped></style>
