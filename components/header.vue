@@ -1,13 +1,13 @@
 <template>
   <header>
     <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="/goods">Faciop</b-navbar-brand>
+      <b-navbar-brand to="/goods">Faciop</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="/about">About</b-nav-item>
+          <b-nav-item to="/about">About</b-nav-item>
           <!-- <b-nav-item href="#" disabled>Disabled</b-nav-item> -->
         </b-navbar-nav>
 
@@ -29,8 +29,8 @@
             <template v-slot:button-content>
               <em>User</em>
             </template>
-            <b-dropdown-item href="/profile">Profile</b-dropdown-item>
-            <b-dropdown-item href="/">Sign Out</b-dropdown-item>
+            <b-dropdown-item to="/profile">Profile</b-dropdown-item>
+            <b-dropdown-item to="/">Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>
