@@ -1,11 +1,14 @@
 <template>
   <div class="container">
     <h1>商品一覧</h1>
+    <!-- <div class="pagination">
+      <div class="total">ページ {{ page }}/{{ totalPage }}</div>
+    </div> -->
     <div class="cards">
-      <div v-for="row in data" :key="row.goodsID" class="card center-block">
+      <div v-for="row in items.data" :key="row.goodsID" class="card">
         <b-card
           :title="row.name"
-          :img-src="row.thumb"
+          :img-src="row.thumbnail"
           img-alt="thumbnail"
           img-top
           tag="good"
@@ -13,9 +16,9 @@
           class="mb-2"
         >
           <b-card-text>
-            ここに説明文
+            {{ row.description }}
           </b-card-text>
-          <nuxt-link :to="{ path: '/good', query: { dp: row.goodsID } }">
+          <nuxt-link :to="{ path: '/good', query: { dp: row.id } }">
             リンク
           </nuxt-link>
         </b-card>
@@ -28,19 +31,32 @@
 export default {
   data() {
     return {
-      data: []
+      items: [],
+      page: 1,
+      perPage: 10
     };
   },
   async asyncData({ app }) {
-    const getUrl =
-      "https://gist.githubusercontent.com/eggplants/c496181ddc8e88f9742e40b9aaebf21f/raw/522e3631111424cf44dc9fbf4cdf6e7e99a07228/goods.json";
+    const getUrl = "https://immense-brook-99073.herokuapp.com/api/v1/goods/";
     const response = await app.$axios.$get(getUrl);
     console.log(response);
     return {
-      data: response
+      items: response
+      // totalPage: Math.ceil(response.length / 10),
+      // count: response.length
     };
   }
 };
+//   computed: {
+//     filterItems() {
+//       console.log(this.items.data);
+//       return this.items.data.slice(
+//         (this.page - 1) * this.perPage,
+//         this.page * this.perPage
+//       );
+//     }
+//   }
+// };
 </script>
 
 <style scoped></style>
