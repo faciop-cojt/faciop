@@ -2,6 +2,10 @@
 
 - 2020年度COJTで作成しているソフトのフロントエンド.
 - Nuxt(typescript)で実装中…
+- バックエンド
+  - https://github.com/faciop-cojt/faciop-api
+- 3Dモデルの試着部分の実装
+  - https://github.com/faciop-cojt/faciop-face-detection-sandbox
 
 ## 初めにやって
 
@@ -23,5 +27,3 @@ $ npm run deploy
 - どこまで実装できるんだろうね
 
 ![page_plot](https://raw.githubusercontent.com/faciop-cojt/faciop-client/master/page_plot_v3.png)
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
