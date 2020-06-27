@@ -9,8 +9,8 @@
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
+    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt-ts build",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt-ts generate",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
