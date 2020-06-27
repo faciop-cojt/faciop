@@ -14,7 +14,7 @@
 $ yarn install
 
 # サーバをlocalhost:3000に
-$ yarn dev --port 3000]
+$ yarn dev --port 3000
 
 # GitHub Pagesへデプロイ
 $ npm run generate:gh-pages
