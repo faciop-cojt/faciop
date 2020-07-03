@@ -4,7 +4,8 @@
       <b-img center :src="items.data.thumbnail" alt="Center image"></b-img>
     </div>
     <div>
-      {{ items }}
+      <!-- debug -->
+      <!-- {{ items }} -->
       <b-list-group>
         <b-list-group-item>商品名: {{ items.data.name }}</b-list-group-item>
         <b-list-group-item
@@ -14,6 +15,12 @@
         <b-list-group-item
           >購入サイトへ！(外部):
           <a :href="items.data.link">{{ items.data.link }}</a>
+        </b-list-group-item>
+        <b-list-group-item v-if="hasData">
+          試着する！
+        </b-list-group-item>
+        <b-list-group-item v-else>
+          入稿する！
         </b-list-group-item>
       </b-list-group>
     </div>
@@ -34,6 +41,9 @@ export default {
         .replace(/[\[\]\"]/g, "")
         .split(",")
         .join("\n");
+    },
+    hasData: function() {
+      return this.items.data.data !== "";
     }
   },
   async asyncData({ app, query }) {

@@ -1,12 +1,11 @@
 <template>
   <div class="cards">
-    <div v-for="row in items.data" :key="row.id" class="card">
+    <div v-for="row in items" :key="row.id" class="card">
       <b-card
         :title="row.name"
         :img-src="row.thumbnail"
         img-alt="thumbnail"
         img-top
-        tag="good"
         class="mb-2"
       >
         <b-card-text>
