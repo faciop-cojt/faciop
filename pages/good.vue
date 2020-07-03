@@ -5,7 +5,7 @@
     </div>
     <div>
       <!-- debug -->
-      <!-- {{ items }} -->
+      <!-- {{ items }},{{ $route.query.dp }} -->
       <b-list-group>
         <b-list-group-item>商品名: {{ items.data.name }}</b-list-group-item>
         <b-list-group-item
@@ -17,10 +17,16 @@
           <a :href="items.data.link">{{ items.data.link }}</a>
         </b-list-group-item>
         <b-list-group-item v-if="hasData">
-          試着する！
+          <nuxt-link
+            :to="{ path: '/trying-on', query: { dp: items.data.data } }"
+          >
+            試着する！
+          </nuxt-link>
         </b-list-group-item>
         <b-list-group-item v-else>
-          入稿する！
+          <nuxt-link :to="{ path: '/upload', query: { dp: items.data.id } }">
+            入稿する！
+          </nuxt-link>
         </b-list-group-item>
       </b-list-group>
     </div>
