@@ -130,11 +130,12 @@ export default {
       var hits = this.items.data;
       var newhits;
       if (this.keyword !== "") {
+        const regexp = new RegExp(this.keyword, "i");
         newhits = hits.filter(item => {
           return (
             Object.values(item)
               .toString()
-              .indexOf(this.keyword) !== -1
+              .match(regexp) !== null
           );
         });
         return newhits;
