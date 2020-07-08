@@ -43,8 +43,6 @@ export default {
         this.$refs["submit-btn"].disabled = false;
       } else {
         //通知、選択解除
-        // this.file = [];
-        // this.$refs["file-input"].reset();
         alert(`ファイルの形式が間違ってそう
                直してね`);
         this.$refs["submit-btn"].disabled = true;
