@@ -11,7 +11,7 @@
       <div class="links">
          <nuxt-link
             :to="{ path: '/goods'}"
-             target="_blank" class="button--green"
+             class="button--green"
           >
           商品一覧へ
           </nuxt-link>

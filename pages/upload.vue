@@ -13,7 +13,7 @@
         placeholder="3Dデータを選択(.gltf, .glb)"
         accept=".gltf, .glb"
       ></b-form-file>
-      <b-button @click="upload" ref="submit-btn" disabled
+      <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled
         >アップロード！</b-button
       >
     </div>
@@ -23,6 +23,7 @@
 
 <script>
 import Path from "path";
+import axios from 'axios';
 
 export default {
   data() {
@@ -47,6 +48,25 @@ export default {
                直してね`);
         this.$refs["submit-btn"].disabled = true;
       }
+    },
+    upload: function(id){
+      // curl -F 'goodid={id}' -F 'data=@{this.file}' {end}
+    const end = 'https://immense-brook-99073.herokuapp.com/api/v1/model/';
+    axios.post(end, {
+      params: {
+        "goodid": id,
+        "data": this.file
+      }
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+    .then(function () {
+      // always executed
+    });  
     }
   }
 };

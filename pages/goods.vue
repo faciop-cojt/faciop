@@ -12,8 +12,9 @@
         <!-- 検索条件の変更毎にmethodを呼んでitemsを更新 -->
         <div>
           <b-dropdown id="dropdown-1" text="検索フィルタ" class="m-md-2">
-            <b-dropdown-item>3Dデータ未入稿</b-dropdown-item>
-            <b-dropdown-item>試着可能</b-dropdown-item>
+            <b-dropdown-item @click="uploadByFilter(`all`)">すべて</b-dropdown-item>
+            <b-dropdown-item @click="uploadByFilter(`uploaded`)">試着可能</b-dropdown-item>
+            <b-dropdown-item @click="uploadByFilter(`yet_uploaded`)">3Dデータ未入稿</b-dropdown-item>
           </b-dropdown>
         </div>
         <div>
@@ -77,7 +78,7 @@ export default {
     console.log(response);
     return {
       items: response,
-      o_items: response
+      o_items: JSON.parse(JSON.stringify(response))
       // totalPage: Math.ceil(response.length / 10),
       // count: response.length
     };
@@ -118,7 +119,8 @@ export default {
       }
     },
     categoryByFilter: function(filter) {
-      const a = Object.assign({}, this.o_items.data);
+      const a = this.o_items.data;
+
       switch (filter) {
         case "all":
           console.log(this.o_items.data);
@@ -131,13 +133,37 @@ export default {
           );
           break;
         case "hat":
+          console.log(this.o_items.data);
           this.items.data = a.filter(d =>
             d.category === "帽子"
           );
           break;
         case "mask":
+          console.log(this.o_items.data);
           this.items.data = a.filter(d =>
             d.category === "マスク"
+          );
+          break;
+      }
+    },
+    uploadByFilter: function(filter) {
+      const a = this.o_items.data;
+
+      switch (filter) {
+        case "all":
+          console.log(this.o_items.data);
+          this.items.data = a;
+          break;
+        case "uploaded":
+          console.log(this.o_items.data);
+          this.items.data = a.filter(d =>
+            d.data !== ""
+          );
+          break;
+        case "yet_uploaded":
+          console.log(this.o_items.data);
+          this.items.data = a.filter(d =>
+            d.data === ""
           );
           break;
       }
