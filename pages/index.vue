@@ -1,19 +1,25 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        faciop-client
-      </h1>
+      <!-- <logo /> -->
+      <img class="logo" src="@/assets/logos/logo.png" />
+      <!-- <h1 class="title">faciop-client</h1> -->
       <h2 class="subtitle">
-        My fantastic Nuxt.js project
+          Let's try it on on the web!
+          Web上で試着しよう!
       </h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
+         <nuxt-link
+            :to="{ path: '/goods'}"
+             target="_blank" class="button--green"
+          >
+          商品一覧へ
+          </nuxt-link>
+        <!-- <a href="/goods" target="_blank" class="button--green">
+          商品一覧へ
+        </a> -->
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/faciop-cojt"
           target="_blank"
           class="button--grey"
         >
@@ -26,7 +32,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import Logo from "~/components/Logo.vue";
+import Logo from "@/components/Logo.vue";
 
 export default Vue.extend({
   components: {
@@ -43,6 +49,10 @@ export default Vue.extend({
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.logo {
+  width: 1000px;
 }
 
 .title {

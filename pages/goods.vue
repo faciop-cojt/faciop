@@ -14,15 +14,15 @@
           <b-dropdown id="dropdown-1" text="検索フィルタ" class="m-md-2">
             <b-dropdown-item>3Dデータ未入稿</b-dropdown-item>
             <b-dropdown-item>試着可能</b-dropdown-item>
-            <b-dropdown-item></b-dropdown-item>
           </b-dropdown>
         </div>
         <div>
           <b-dropdown id="dropdown-2" text="カテゴリ" class="m-md-2">
-            <b-dropdown-item>メガネ</b-dropdown-item>
+            <b-dropdown-item @click="categoryByFilter(`all`)">すべて</b-dropdown-item>
+            <b-dropdown-item @click="categoryByFilter(`grass`)">メガネ</b-dropdown-item>
             <!-- <b-dropdown-item>ピアス・イヤリング</b-dropdown-item> -->
-            <b-dropdown-item>帽子</b-dropdown-item>
-            <b-dropdown-item>マスク</b-dropdown-item>
+            <b-dropdown-item @click="categoryByFilter(`hat`)">帽子</b-dropdown-item>
+            <b-dropdown-item @click="categoryByFilter(`mask`)">マスク</b-dropdown-item>
           </b-dropdown>
         </div>
         <div>
@@ -66,6 +66,7 @@ export default {
     return {
       keyword: "",
       items: [],
+      o_items: [],
       page: 1,
       perPage: 10
     };
@@ -75,7 +76,8 @@ export default {
     const response = await app.$axios.$get(getUrl);
     console.log(response);
     return {
-      items: response
+      items: response,
+      o_items: response
       // totalPage: Math.ceil(response.length / 10),
       // count: response.length
     };
@@ -114,6 +116,31 @@ export default {
           });
           break;
       }
+    },
+    categoryByFilter: function(filter) {
+      const a = Object.assign({}, this.o_items.data);
+      switch (filter) {
+        case "all":
+          console.log(this.o_items.data);
+          this.items.data = a;
+          break;
+        case "grass":
+          console.log(this.o_items.data);
+          this.items.data = a.filter(d =>
+            d.category === "メガネ"
+          );
+          break;
+        case "hat":
+          this.items.data = a.filter(d =>
+            d.category === "帽子"
+          );
+          break;
+        case "mask":
+          this.items.data = a.filter(d =>
+            d.category === "マスク"
+          );
+          break;
+      }
     }
   },
   //算出プロパティ, レンダリング前に内部的なデータを処理して返す
@@ -143,6 +170,7 @@ export default {
         return hits;
       }
     }
+    
   }
 };
 </script>
