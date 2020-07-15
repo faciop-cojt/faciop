@@ -17,8 +17,8 @@ $ yarn install
 $ yarn dev --port 3000
 
 # GitHub Pagesへデプロイ
-$ npm run generate:gh-pages
-$ npm run deploy
+$ yarn run generate:gh-pages
+$ yarn run deploy
 ```
 
 # ページ案
