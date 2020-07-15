@@ -52,7 +52,7 @@ export default Vue.extend({
 }
 
 .logo {
-  width: 1000px;
+  width: 200px;
 }
 
 .title {
