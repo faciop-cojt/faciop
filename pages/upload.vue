@@ -52,6 +52,8 @@ export default {
     upload: function(id){
       // curl -F 'goodid={id}' -F 'data=@{this.file}' {end}
     const end = 'https://immense-brook-99073.herokuapp.com/api/v1/model/';
+    // 入稿できたらgoodにリダイレクト
+    // できなかったら同じところ
     axios.post(end, {
       params: {
         "goodid": id,
