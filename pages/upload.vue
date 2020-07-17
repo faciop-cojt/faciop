@@ -50,25 +50,33 @@ export default {
       }
     },
     upload: function(id){
-      // curl -F 'goodid={id}' -F 'data=@{this.file}' {end}
+      // curl -F 'goodid=12' -F 'data=@glasses.glb' \
+      // https://immense-brook-99073.herokuapp.com/api/v1/model/
     const end = 'https://immense-brook-99073.herokuapp.com/api/v1/model/';
     // 入稿できたらgoodにリダイレクト
     // できなかったら同じところ
-    axios.post(end, {
-      params: {
-        "goodid": id,
-        "data": this.file
+    console.log(this.file);
+    console.log(1);
+    let params = new FormData;
+    params.append('goodid', id);
+    params.append('data', this.file);
+    axios.post(end, params,{
+      headers: {
+        'content-type': 'multipart/form-data',
+        'Accept': '*/*',
       }
     })
     .then(function (response) {
-      console.log(response);
+      if (response.status == "SUCCESS") {
+        //リダイレクト
+        
+      }
     })
     .catch(function (error) {
-      console.log(error);
+      // エラーメッセージ
+      alert(`ファイル入稿エラー`);
     })
-    .then(function () {
-      // always executed
-    });  
+
     }
   }
 };
