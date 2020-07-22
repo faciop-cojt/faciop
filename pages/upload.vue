@@ -82,7 +82,7 @@ export default {
       // })
       console.log(uploadOK)
       if (uploadOK) {
-        this.$router.push(`good?dp=${id}`, () => {});
+        this.$router.push(`/good?dp=${id}`, () => {});
       } else {
         this.loading = false
         alert(`エラー`);
