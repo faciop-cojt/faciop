@@ -5,13 +5,15 @@
     </div>
     <div>
       <!-- debug -->
-      {{ items }},{{ $route.query.dp }}
+      <!-- {{ items }},{{ $route.query.dp }} -->
       <b-list-group>
         <b-list-group-item>商品名: {{ items.data.name }}</b-list-group-item>
         <b-list-group-item
           >ショップID: {{ items.data.shopid }}</b-list-group-item
         >
         <b-list-group-item>説明: {{ stringToArray }}</b-list-group-item>
+        <b-list-group-item>価格: {{ items.data.price }}円</b-list-group-item>
+        <!-- <b-list-group-item>ショップ: {{ items.data.shopid }}</b-list-group-item> -->
         <b-list-group-item
           >購入サイトへ！(外部):
           <a :href="items.data.link">{{ items.data.link }}</a>
@@ -64,3 +66,4 @@ export default {
   }
 };
 </script>
+

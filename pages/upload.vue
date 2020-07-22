@@ -2,7 +2,7 @@
   <b-overlay :show="loading" rounded="sm">
     <div class="container">
       <h1>3Dデータの入稿</h1>
-      <div class="debug">{{ $route.query.dp }}</div>
+      <div class="debug">ID: {{ $route.query.dp }}</div>
       <div class="form-group">
           <!-- .gltf, .glb -->
         <b-form-file
