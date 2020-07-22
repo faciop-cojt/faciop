@@ -1,23 +1,25 @@
 <template>
   <div class="container">
     <div>
-      <logo />
-      <h1 class="title">
-        faciop-client
-      </h1>
+      <!-- <logo /> -->
+      <img class="logo" src="@/assets/logos/logo.png" />
+      <!-- <h1 class="title">faciop-client</h1> -->
       <h2 class="subtitle">
-        My fantastic Nuxt.js project
+          Let's try it on online!<br>
+          Web上で試着しよう!
       </h2>
       <div class="links">
+         <nuxt-link
+            :to="{ path: '/goods'}"
+             class="button--green"
+          >
+          商品一覧へ
+          </nuxt-link>
+        <!-- <a href="/goods" target="_blank" class="button--green">
+          商品一覧へ
+        </a> -->
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/faciop-cojt"
           target="_blank"
           class="button--grey"
         >
@@ -28,18 +30,7 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import Logo from '~/components/Logo.vue'
-
-export default Vue.extend({
-  components: {
-    Logo
-  }
-})
-</script>
-
-<style>
+<style scoped>
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -49,9 +40,13 @@ export default Vue.extend({
   text-align: center;
 }
 
+.logo {
+  width: 200px;
+}
+
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

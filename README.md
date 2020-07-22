@@ -1,22 +1,29 @@
 # faciop-client
 
-> My fantastic Nuxt.js project
+- 2020年度COJTで作成しているソフトのフロントエンド.
+- Nuxt(typescript)で実装中…
+- バックエンド
+  - https://github.com/faciop-cojt/faciop-api
+- 3Dモデルの試着部分の実装
+  - https://github.com/faciop-cojt/faciop-face-detection-sandbox
 
-## Build Setup
+## 初めにやって
 
 ```bash
-# install dependencies
+# 依存パッケージ入れる
 $ yarn install
 
-# serve with hot reload at localhost:3000
-$ yarn dev
+# サーバをlocalhost:3000に
+$ yarn dev --port 3000
 
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+# GitHub Pagesへデプロイ
+$ yarn run generate:gh-pages
+$ yarn run deploy
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+# ページ案
+
+- ワイヤフレーム
+- どこまで実装できるんだろうね
+
+![page_plot](https://raw.githubusercontent.com/faciop-cojt/faciop-client/master/page_plot_v3.png)
