@@ -1,11 +1,14 @@
 <template>
   <div class="container">
     <div>
-      <b-img center :src="items.data.thumbnail" alt="Center image"></b-img>
+      <b-img
+        center
+        :src="items.data.thumbnail"
+        fluid
+        alt="Center image"
+      ></b-img>
     </div>
     <div>
-      <!-- debug -->
-      <!-- {{ items }},{{ $route.query.dp }} -->
       <b-list-group>
         <b-list-group-item>商品名: {{ items.data.name }}</b-list-group-item>
         <b-list-group-item
@@ -13,15 +16,12 @@
         >
         <b-list-group-item>説明: {{ stringToArray }}</b-list-group-item>
         <b-list-group-item>価格: {{ items.data.price }}円</b-list-group-item>
-        <!-- <b-list-group-item>ショップ: {{ items.data.shopid }}</b-list-group-item> -->
         <b-list-group-item
           >購入サイトへ！(外部):
           <a :href="items.data.link">{{ items.data.link }}</a>
         </b-list-group-item>
         <b-list-group-item v-if="hasData">
-          <nuxt-link
-            :to="{ path: '/trying-on', query: { id: items.data.id } }"
-          >
+          <nuxt-link :to="{ path: '/trying-on', query: { id: items.data.id } }">
             試着する！
           </nuxt-link>
         </b-list-group-item>
@@ -55,7 +55,6 @@ export default {
     }
   },
   async asyncData({ app, query }) {
-    //goodIDを指定して単体のデータが取ってこれるといいなあ
     const getUrl = `https://immense-brook-99073.herokuapp.com/api/v1/goods/${query.dp}`;
     return await app.$axios.$get(getUrl).then(res => {
       console.log(res);
@@ -66,4 +65,3 @@ export default {
   }
 };
 </script>
-
