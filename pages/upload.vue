@@ -1,24 +1,25 @@
 <template>
-  <div class="container">
-    <h1>3Dデータの入稿</h1>
-    <div class="debug">{{ $route.query.dp }}</div>
-    <div class="form-group">
-      <!-- .gltf, .glb -->
-      <b-form-file
-        @input="validateType"
-        id="file-large"
-        ref="file-input"
-        v-model="file"
-        :state="Boolean(file)"
-        placeholder="3Dデータを選択(.gltf, .glb)"
-        accept=".gltf, .glb"
-      ></b-form-file>
-      <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled
-        >アップロード！</b-button
-      >
+  <b-overlay :show="loading" rounded="sm">
+    <div class="container">
+      <h1>3Dデータの入稿</h1>
+      <div class="debug">{{ $route.query.dp }}</div>
+      <div class="form-group">
+          <!-- .gltf, .glb -->
+        <b-form-file
+            @input="validateType"
+            id="file-large"
+            ref="file-input"
+            v-model="file"
+            :state="Boolean(file)"
+            placeholder="3Dデータを選択(.gltf, .glb)"
+            accept=".gltf, .glb"
+        ></b-form-file>
+        <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled
+          >アップロード！</b-button
+        >
+      </div>    
     </div>
-    <!-- <b-form-select v-model="selectedItem" :options="options"> </b-form-select> -->
-  </div>
+  </b-overlay>
 </template>
 
 <script>
@@ -28,7 +29,8 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      file: []
+      file: [],
+      loading: false
     };
   },
   methods: {
@@ -49,35 +51,47 @@ export default {
         this.$refs["submit-btn"].disabled = true;
       }
     },
-    upload: function(id){
+    upload: async function(id){
       // curl -F 'goodid=12' -F 'data=@glasses.glb' \
       // https://immense-brook-99073.herokuapp.com/api/v1/model/
-    const end = 'https://immense-brook-99073.herokuapp.com/api/v1/model/';
-    // 入稿できたらgoodにリダイレクト
-    // できなかったら同じところ
-    console.log(this.file);
-    console.log(1);
-    let params = new FormData;
-    params.append('goodid', id);
-    params.append('data', this.file);
-    axios.post(end, params,{
-      headers: {
-        'content-type': 'multipart/form-data',
-        'Accept': '*/*',
+      const end = 'https://immense-brook-99073.herokuapp.com/api/v1/model/';
+      // 入稿できたらgoodにリダイレクト
+      // できなかったら同じところ
+      this.loading = true;
+      let params = new FormData;
+      params.append('goodid', id);
+      params.append('data', this.file);
+      const uploadOK = await axios.post(end, params,{
+        headers: {
+          'content-type': 'multipart/form-data',
+          'Accept': '*/*',
+        }
+      })
+      .then(function (response) {
+        if (response.status == 200) {
+          return true;
+        }
+      })
+      .catch(function (error) {
+        // エラーメッセージ
+        alert(`ファイル入稿通信時エラー`);
+        return false;
+      })
+      // .finally(function(){
+      //   console.log(uploadOK)
+      // })
+      console.log(uploadOK)
+      if (uploadOK) {
+        this.$router.push(`good?dp=${id}`, () => {});
+      } else {
+        this.loading = false
+        alert(`エラー`);
       }
-    })
-    .then(function (response) {
-      if (response.status == "SUCCESS") {
-        //リダイレクト
-        
-      }
-    })
-    .catch(function (error) {
-      // エラーメッセージ
-      alert(`ファイル入稿エラー`);
-    })
-
     }
   }
 };
 </script>
+
+<style scoped>
+
+</style>

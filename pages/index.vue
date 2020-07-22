@@ -5,7 +5,7 @@
       <img class="logo" src="@/assets/logos/logo.png" />
       <!-- <h1 class="title">faciop-client</h1> -->
       <h2 class="subtitle">
-          Let's try it on on the web!
+          Let's try it on online!<br>
           Web上で試着しよう!
       </h2>
       <div class="links">
