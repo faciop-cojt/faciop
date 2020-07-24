@@ -1,7 +1,7 @@
 <template>
   <div>
-      <facemesh-video v-show="isVisible"/>
       <three-canvas v-show="isVisible"/>
+      <facemesh-video v-show="isVisible"/>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVisible: false
+      isVisible: true
     }
   }
 })

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="video-wrapper">
-      <video src="" id="face-video" ref="video"></video>
-    </div>
+    <video src="" id="face-video" ref="video"></video>
   </div>
 </template>
 
