@@ -1,7 +1,7 @@
 <template>
-  <div>
-      <three-canvas v-show="isVisible"/>
-      <facemesh-video v-show="isVisible"/>
+  <div class="viewer-wrapper">
+      <facemesh-video class="viewer-element video" v-show="isVisible"/>
+      <three-canvas class="viewer-element canvas" v-show="isVisible"/>
   </div>
 </template>
 
@@ -22,3 +22,21 @@ export default Vue.extend({
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.viewer-wrapper {
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  // text-align: center;
+  // margin: 0 auto;
+  position: relative;
+  // width: 100%;
+
+  .viewer-element {
+    position: absolute;
+    // margin: 0 auto;
+  }
+
+}
+</style>
