@@ -21,9 +21,4 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.canvas {
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 </style>

@@ -1,8 +1,6 @@
 <template>
   <div>
-    <div class="video-wrapper">
-      <video src="" id="face-video" ref="video"></video>
-    </div>
+    <video src="" id="face-video" ref="video"></video>
   </div>
 </template>
 
@@ -18,6 +16,8 @@ export default Vue.extend({
     video.onloadeddata = ev => {
       this.$facecanvas.setCanvasSize(video.clientWidth, video.clientHeight);
       console.log("video width", video.clientWidth);
+
+      this.$emit('onSizeChanged', video.clientWidth, video.clientHeight);
       
       this.loop(video);
     };
