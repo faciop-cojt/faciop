@@ -1,7 +1,7 @@
 <template>
-  <div class="viewer-wrapper">
-      <facemesh-video class="viewer-element video" v-show="isVisible"/>
-      <three-canvas class="viewer-element canvas" v-show="isVisible"/>
+  <div class="viewer-wrapper" :style="wrapperStyle">
+      <facemesh-video class="viewer-element video" v-show="isVisible" ref="video-element"/>
+      <three-canvas class="viewer-element canvas" v-show="isVisible" ref="canvas-element"/>
   </div>
 </template>
 
@@ -17,7 +17,10 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVisible: true
+      isVisible: true,
+      wrapperStyle: {
+        width: '90%'
+      }
     }
   }
 })
@@ -29,9 +32,9 @@ export default Vue.extend({
   // justify-content: center;
   // align-items: center;
   // text-align: center;
-  // margin: 0 auto;
+  margin: 0 auto;
   position: relative;
-  // width: 100%;
+  // width: 90%;
 
   .viewer-element {
     position: absolute;
