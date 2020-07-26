@@ -27,15 +27,17 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVisible: true,
+      isVisible: false,
       wrapperSize: {
         width: "0px",
         height: "0px"
       }
     };
   },
-  mounted() {
-    console.log(this.$route.name, this.$route.query.id);
+  updated() {
+    console.log('path: ', this.$route.name);
+    
+    this.isVisible = this.$route.name==='trying-on';
   },
   methods: {
     videoSizeChanged(w: number, h: number): void {
