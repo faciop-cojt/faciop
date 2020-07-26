@@ -15,7 +15,6 @@ export default Vue.extend({
 
     video.onloadeddata = ev => {
       this.$facecanvas.setCanvasSize(video.clientWidth, video.clientHeight);
-      console.log("video width", video.clientWidth);
 
       this.$emit('onSizeChanged', video.clientWidth, video.clientHeight);
       

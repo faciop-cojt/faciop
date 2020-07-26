@@ -34,9 +34,11 @@ export default Vue.extend({
       }
     };
   },
+  mounted() {
+    console.log(this.$route.name, this.$route.query.id);
+  },
   methods: {
     videoSizeChanged(w: number, h: number): void {
-      console.log(w, h);
 
       this.wrapperSize = {
         width: w + "px",
