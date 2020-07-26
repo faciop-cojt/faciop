@@ -9,21 +9,33 @@
         ></b-form-input>
       </div>
       <div class="btn-group">
-        <!-- 検索条件の変更毎にmethodを呼んでitemsを更新 -->
         <div>
           <b-dropdown id="dropdown-1" text="検索フィルタ" class="m-md-2">
-            <b-dropdown-item @click="uploadByFilter(`all`)">すべて</b-dropdown-item>
-            <b-dropdown-item @click="uploadByFilter(`uploaded`)">試着可能</b-dropdown-item>
-            <b-dropdown-item @click="uploadByFilter(`yet_uploaded`)">3Dデータ未入稿</b-dropdown-item>
+            <b-dropdown-item @click="uploadByFilter(`all`)"
+              >すべて</b-dropdown-item
+            >
+            <b-dropdown-item @click="uploadByFilter(`uploaded`)"
+              >試着可能</b-dropdown-item
+            >
+            <b-dropdown-item @click="uploadByFilter(`yet_uploaded`)"
+              >3Dデータ未入稿</b-dropdown-item
+            >
           </b-dropdown>
         </div>
         <div>
           <b-dropdown id="dropdown-2" text="カテゴリ" class="m-md-2">
-            <b-dropdown-item @click="categoryByFilter(`all`)">すべて</b-dropdown-item>
-            <b-dropdown-item @click="categoryByFilter(`grass`)">メガネ</b-dropdown-item>
-            <!-- <b-dropdown-item>ピアス・イヤリング</b-dropdown-item> -->
-            <b-dropdown-item @click="categoryByFilter(`hat`)">帽子</b-dropdown-item>
-            <b-dropdown-item @click="categoryByFilter(`mask`)">マスク</b-dropdown-item>
+            <b-dropdown-item @click="categoryByFilter(`all`)"
+              >すべて</b-dropdown-item
+            >
+            <b-dropdown-item @click="categoryByFilter(`grass`)"
+              >メガネ</b-dropdown-item
+            >
+            <b-dropdown-item @click="categoryByFilter(`hat`)"
+              >帽子</b-dropdown-item
+            >
+            <b-dropdown-item @click="categoryByFilter(`mask`)"
+              >マスク</b-dropdown-item
+            >
           </b-dropdown>
         </div>
         <div>
@@ -49,9 +61,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="pagination">
-      <div class="total">ページ {{ page }}/{{ totalPage }}</div>
-    </div> -->
     <GoodsCards :items="searchKeyword" />
   </div>
 </template>
@@ -67,9 +76,7 @@ export default {
     return {
       keyword: "",
       items: [],
-      o_items: [],
-      page: 1,
-      perPage: 10
+      o_items: []
     };
   },
   async asyncData({ app }) {
@@ -79,8 +86,6 @@ export default {
     return {
       items: response,
       o_items: JSON.parse(JSON.stringify(response))
-      // totalPage: Math.ceil(response.length / 10),
-      // count: response.length
     };
   },
   //メソッド, ページレンダリングの中で使用
@@ -128,21 +133,15 @@ export default {
           break;
         case "grass":
           console.log(this.o_items.data);
-          this.items.data = a.filter(d =>
-            d.category === "メガネ"
-          );
+          this.items.data = a.filter(d => d.category === "メガネ");
           break;
         case "hat":
           console.log(this.o_items.data);
-          this.items.data = a.filter(d =>
-            d.category === "帽子"
-          );
+          this.items.data = a.filter(d => d.category === "帽子");
           break;
         case "mask":
           console.log(this.o_items.data);
-          this.items.data = a.filter(d =>
-            d.category === "マスク"
-          );
+          this.items.data = a.filter(d => d.category === "マスク");
           break;
       }
     },
@@ -156,28 +155,17 @@ export default {
           break;
         case "uploaded":
           console.log(this.o_items.data);
-          this.items.data = a.filter(d =>
-            d.data !== ""
-          );
+          this.items.data = a.filter(d => d.data !== "");
           break;
         case "yet_uploaded":
           console.log(this.o_items.data);
-          this.items.data = a.filter(d =>
-            d.data === ""
-          );
+          this.items.data = a.filter(d => d.data === "");
           break;
       }
     }
   },
   //算出プロパティ, レンダリング前に内部的なデータを処理して返す
   computed: {
-    filterItems: function() {
-      // console.log(this.items.data);
-      return this.items.data.slice(
-        (this.page - 1) * this.perPage,
-        this.page * this.perPage
-      );
-    },
     //キーワードに応じてitemsに破壊的な変更
     searchKeyword: function() {
       var hits = this.items.data;
@@ -196,7 +184,6 @@ export default {
         return hits;
       }
     }
-    
   }
 };
 </script>
