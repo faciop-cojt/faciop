@@ -37,6 +37,11 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: "商品詳細"
+    };
+  },
   data() {
     return {
       items: [],

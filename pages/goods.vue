@@ -72,6 +72,11 @@ export default {
   components: {
     GoodsCards
   },
+  head() {
+    return {
+      title: "商品一覧"
+    };
+  },
   data() {
     return {
       keyword: "",
