@@ -5,16 +5,13 @@
       <img class="logo" src="@/assets/logos/logo.png" />
       <!-- <h1 class="title">faciop-client</h1> -->
       <h2 class="subtitle">
-          Let's try it on online!<br>
-          Web上で試着しよう!
+        Let's try it on online!<br />
+        Web上で試着しよう!
       </h2>
       <div class="links">
-         <nuxt-link
-            :to="{ path: '/goods'}"
-             class="button--green"
-          >
+        <nuxt-link :to="{ path: '/goods' }" class="button--green">
           商品一覧へ
-          </nuxt-link>
+        </nuxt-link>
         <!-- <a href="/goods" target="_blank" class="button--green">
           商品一覧へ
         </a> -->
@@ -29,6 +26,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: "Top"
+    };
+  }
+};
+</script>
 
 <style scoped>
 .container {

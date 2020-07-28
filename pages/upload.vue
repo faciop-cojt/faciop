@@ -14,8 +14,8 @@
           placeholder="3Dデータを選択(.gltf, .glb)"
           accept=".gltf, .glb"
         ></b-form-file>
-        <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled
-          >アップロード！
+        <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled>
+          アップロード！
         </b-button>
       </div>
       <b-link :to="{ path: '/good', query: { dp: $route.query.dp } }">
@@ -30,6 +30,11 @@ import Path from "path";
 import axios from "axios";
 
 export default {
+  head() {
+    return {
+      title: "3Dデータ入稿"
+    };
+  },
   data() {
     return {
       file: [],
