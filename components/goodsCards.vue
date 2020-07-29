@@ -1,19 +1,20 @@
 <template>
-  <div class="cards">
-    <div v-for="row in items" :key="row.id" class="card">
-      <b-card
-        :title="row.name"
-        :img-src="row.thumbnail"
-        img-alt="thumbnail"
-        img-top
-        class="mb-2"
-      >
-        <b-card-text>
-          {{ stringToArray(row.description) }}
-        </b-card-text>
+  <div class="row">
+    <div v-for="row in items" :key="row.id" class="card col-sm-6">
+      <b-card no-body img-alt="thumbnail" img-top class="border-light mb-2">
         <nuxt-link :to="{ path: '/good', query: { dp: row.id } }">
-          リンク
+          <b-card-img :src="row.thumbnail" />
         </nuxt-link>
+        <b-card-body>
+          <b-card-title>{{ row.name }}</b-card-title>
+          <b-card-sub-title class="mb-2"> ￥{{ row.price }} </b-card-sub-title>
+          <b-card-text>
+            {{ stringToArray(row.description) }}
+          </b-card-text>
+          <nuxt-link :to="{ path: '/good', query: { dp: row.id } }">
+            商品詳細
+          </nuxt-link>
+        </b-card-body>
       </b-card>
     </div>
   </div>
