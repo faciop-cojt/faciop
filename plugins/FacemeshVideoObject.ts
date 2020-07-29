@@ -22,14 +22,14 @@ export class FacemeshVideo {
   }
 
   getWebCamStream(): Promise<MediaStream> {
-    navigator.mediaDevices.enumerateDevices().then(devices => {
-      devices.forEach(device => {
-        console.log("Hello");
+    // navigator.mediaDevices.enumerateDevices().then(devices => {
+    //   devices.forEach(device => {
+    //     console.log("Hello");
 
-        console.log(device.deviceId, device.label);
-        // device.
-      });
-    });
+    //     console.log(device.deviceId, device.label);
+    //     // device.
+    //   });
+    // });
 
     return navigator.mediaDevices.getUserMedia({
       audio: false,
