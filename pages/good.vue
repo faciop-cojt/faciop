@@ -16,24 +16,27 @@
         >
         <b-list-group-item>説明: {{ stringToArray }}</b-list-group-item>
         <b-list-group-item>価格: {{ items.data.price }}円</b-list-group-item>
-        <b-list-group-item
-          >購入サイトへ！(外部):
-          <a :href="items.data.link">{{ items.data.link }}</a>
+        <b-list-group-item>
+          <b-button variant="outline-info" :href="items.data.link">購入サイトへ！(外部)</b-button>
         </b-list-group-item>
         <b-list-group-item v-if="hasData">
-          <nuxt-link :to="{ path: '/trying-on', query: { id: items.data.id } }">
-            試着する！
-          </nuxt-link>
+          <b-button
+            variant="outline-success"
+            :to="{ path: '/trying-on', query: { id: items.data.id } }"
+            >試着する！</b-button
+          >
         </b-list-group-item>
         <b-list-group-item v-else>
-          <nuxt-link :to="{ path: '/upload', query: { dp: items.data.id } }">
-            入稿する！
-          </nuxt-link>
+          <b-button
+            variant="outline-danger"
+            :to="{ path: '/upload', query: { dp: items.data.id } }"
+            >入稿する！</b-button
+          >
         </b-list-group-item>
         <b-list-group-item>
-          <b-link :to="{ path: '/goods' }">
-            ←商品一覧へ戻る
-          </b-link>
+          <b-button variant="outline-secondary" :to="{ path: '/goods' }"
+            >←商品一覧へ戻る</b-button
+          >
         </b-list-group-item>
       </b-list-group>
     </div>

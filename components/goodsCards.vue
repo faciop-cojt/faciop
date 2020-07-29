@@ -11,9 +11,12 @@
           <b-card-text>
             {{ stringToArray(row.description) }}
           </b-card-text>
-          <nuxt-link :to="{ path: '/good', query: { dp: row.id } }">
+          <b-button
+            :to="{ path: '/good', query: { dp: row.id } }"
+            variant="outline-primary"
+          >
             商品詳細
-          </nuxt-link>
+          </b-button>
         </b-card-body>
       </b-card>
     </div>
