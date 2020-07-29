@@ -13,17 +13,18 @@ export default Vue.extend({
     this.$facemeshVideo.initVideoObject(video);
 
     video.onloadeddata = ev => {
-      this.$facecanvas.setCanvasSize(video.clientWidth, video.clientHeight);
+      console.log('onloaededata', video.videoWidth, video.videoHeight);
+      
+      
+      this.$facecanvas.setCanvasSize(video.videoWidth, video.videoHeight);
 
-      this.$emit('onSizeChanged', video.clientWidth, video.clientHeight);
+      this.$emit('onSizeChanged', video.videoWidth, video.videoHeight);
       
       this.loop(video);
     };
 
-    this.$nuxt.$on('tryonMounted',()=>{
-      console.log('on facemesh video emitted', video.clientWidth, video.clientHeight);
-      
-      this.$emit('onSizeChanged', video.clientWidth, video.clientHeight);
+    this.$nuxt.$on('tryonMounted',()=>{      
+      this.$emit('onSizeChanged', video.videoWidth, video.videoHeight);
     })
   },
   methods: {
