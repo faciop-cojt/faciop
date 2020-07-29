@@ -39,10 +39,6 @@ export class FaceCanvas {
 
     let vertex_shader = "void main(){ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }"
     let frag_shader = "void main(){ gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0); }"
-    // let face_mat = new THREE.MeshStandardMaterial({
-    //   color: "#fff",
-    //   visible: false
-    // });
     let face_mat = new THREE.ShaderMaterial({
       vertexShader: vertex_shader,
       fragmentShader: frag_shader
@@ -71,10 +67,11 @@ export class FaceCanvas {
     new GLTFLoader().load(
       path,
       (data)=>{
+        this.scene.remove(this.glasses);
         const gltf = data;
         this.glasses = gltf.scene;
         this.glasses.scale.set(4.7,4.5,4.7);
-        // this.scene.add(this.glasses);
+        this.scene.add(this.glasses);
         console.log("glb model loaded");
         
      },
