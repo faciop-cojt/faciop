@@ -11,6 +11,9 @@ import ArFaceViewer from '~/components/ARFaceViewer/ArFaceViewer.vue'
 export default Vue.extend({
   components: {
     ArFaceViewer
+  },
+  mounted() {
+    this.$facecanvas.itemObjectLoad('./glasses.glb')
   }
 })
 </script>
