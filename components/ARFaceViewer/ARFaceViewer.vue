@@ -27,17 +27,17 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVisible: false,
       wrapperSize: {
         width: "0px",
         height: "0px"
       }
     };
   },
-  updated() {
-    console.log('path: ', this.$route.name);
+  computed: {
+    isVisible(){
+      return this.$store.getters['FaceViewer/viewerVisible'];
+    }
     
-    this.isVisible = this.$route.name==='trying-on';
   },
   methods: {
     videoSizeChanged(w: number, h: number): void {

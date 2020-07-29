@@ -7,6 +7,9 @@
 import Vue from 'vue'
 
 export default Vue.extend({
+  created() {
+    this.$store.dispatch('FaceViewer/changeViewerVisible');
+  },
   mounted() {
     const item_id = this.$route.query.id;
     fetch('https://immense-brook-99073.herokuapp.com/api/v1/goods/'+ item_id)
@@ -25,6 +28,9 @@ export default Vue.extend({
       console.log(err);
       
     })
+  },
+  destroyed() {
+    this.$store.dispatch('FaceViewer/changeViewerInvisible');
   }
 })
 </script>
