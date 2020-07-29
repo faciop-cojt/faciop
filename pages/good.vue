@@ -8,7 +8,7 @@
         alt="Center image"
       ></b-img>
     </div>
-    <div>
+    <div class="mb-10">
       <b-list-group>
         <b-list-group-item>商品名: {{ items.data.name }}</b-list-group-item>
         <b-list-group-item
@@ -29,6 +29,11 @@
           <nuxt-link :to="{ path: '/upload', query: { dp: items.data.id } }">
             入稿する！
           </nuxt-link>
+        </b-list-group-item>
+        <b-list-group-item>
+          <b-link :to="{ path: '/goods' }">
+            ←商品一覧へ戻る
+          </b-link>
         </b-list-group-item>
       </b-list-group>
     </div>

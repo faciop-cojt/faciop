@@ -14,10 +14,13 @@
           placeholder="3Dデータを選択(.gltf, .glb)"
           accept=".gltf, .glb"
         ></b-form-file>
-        <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled
-          >アップロード！</b-button
-        >
+        <b-button @click="upload($route.query.dp)" ref="submit-btn" disabled>
+          アップロード！
+        </b-button>
       </div>
+      <b-link :to="{ path: '/good', query: { dp: $route.query.dp } }">
+        ←商品詳細へ戻る
+      </b-link>
     </div>
   </b-overlay>
 </template>
