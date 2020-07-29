@@ -33,6 +33,8 @@ export default Vue.extend({
       }
     };
   },
+  mounted() {
+  },
   computed: {
     isVisible(){
       return this.$store.getters['FaceViewer/viewerVisible'];

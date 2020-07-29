@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { log } from "@tensorflow/tfjs-core";
 
 export default Vue.extend({
   mounted() {
@@ -20,6 +19,12 @@ export default Vue.extend({
       
       this.loop(video);
     };
+
+    this.$nuxt.$on('tryonMounted',()=>{
+      console.log('on facemesh video emitted', video.clientWidth, video.clientHeight);
+      
+      this.$emit('onSizeChanged', video.clientWidth, video.clientHeight);
+    })
   },
   methods: {
     loop(video: HTMLVideoElement) {

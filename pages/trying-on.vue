@@ -28,6 +28,8 @@ export default Vue.extend({
       console.log(err);
       
     })
+
+    this.$nuxt.$emit('tryonMounted');
   },
   destroyed() {
     this.$store.dispatch('FaceViewer/changeViewerInvisible');
