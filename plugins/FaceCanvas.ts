@@ -104,7 +104,7 @@ export class FaceCanvas {
       this.canvas_height / 2.0,
       -this.canvas_height / 2.0,
     );
-    this.camera.position.set(0,0,100);
+    this.camera.position.set(0,0,500);
 
 
     this.face_geometry.setSize(this.canvas_width, this.canvas_height);
