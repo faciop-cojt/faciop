@@ -2,8 +2,8 @@
   <div>
     <Header />
     <main>
+      <ar-face-viewer />
       <nuxt />
-      <ar-face-viewer/>
     </main>
     <Footer />
   </div>
@@ -12,7 +12,7 @@
 <script>
 import Header from "@/components/header.vue"; // headerをインポート
 import Footer from "@/components/footer.vue"; // footerをインポート
-import ArFaceViewer from '@/components/ARFaceViewer/ArFaceViewer.vue';
+import ArFaceViewer from "@/components/ARFaceViewer/ArFaceViewer.vue";
 
 export default {
   components: {
