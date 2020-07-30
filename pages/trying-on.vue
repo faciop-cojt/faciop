@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1>試着する！</h1>
+    <!-- <h1>試着する！</h1> -->
     <div></div>
     <b-button
       variant="outline-secondary"
