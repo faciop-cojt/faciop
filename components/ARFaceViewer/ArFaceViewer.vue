@@ -1,5 +1,5 @@
 <template>
-  <div class="viewer-wrapper" :style="wrapperSize">
+  <div class="viewer-wrapper" :style="wrapperSize" v-show="isVisible">
     <facemesh-video
       class="viewer-element video"
       v-show="isVisible"
