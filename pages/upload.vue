@@ -68,9 +68,8 @@ export default {
       }
     },
     upload: async function(id) {
-      // curl -F 'goodid=12' -F 'data=@glasses.glb' \
-      // https://immense-brook-99073.herokuapp.com/api/v1/model/
-      const end = "https://immense-brook-99073.herokuapp.com/api/v1/model/";
+      // curl -F 'goodid=12' -F 'data=@glasses.glb' <api>
+      const end = "https://faciop-api.herokuapp.com/api/v1/model/";
       // 入稿できたらgoodにリダイレクト
       // できなかったら同じところ
       this.loading = true;

@@ -17,7 +17,9 @@
         <b-list-group-item>説明: {{ stringToArray }}</b-list-group-item>
         <b-list-group-item>価格: {{ items.data.price }}円</b-list-group-item>
         <b-list-group-item>
-          <b-button variant="outline-info" :href="items.data.link">購入サイトへ！(外部)</b-button>
+          <b-button variant="outline-info" :href="items.data.link"
+            >購入サイトへ！(外部)</b-button
+          >
         </b-list-group-item>
         <b-list-group-item v-if="hasData">
           <b-button
@@ -68,7 +70,7 @@ export default {
     }
   },
   async asyncData({ app, query }) {
-    const getUrl = `https://immense-brook-99073.herokuapp.com/api/v1/goods/${query.dp}`;
+    const getUrl = `https://faciop-api.herokuapp.com/api/v1/goods/${query.dp}`;
     return await app.$axios.$get(getUrl).then(res => {
       console.log(res);
       return {
