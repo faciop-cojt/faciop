@@ -85,7 +85,7 @@ export default {
     };
   },
   async asyncData({ app }) {
-    const getUrl = "https://immense-brook-99073.herokuapp.com/api/v1/goods/";
+    const getUrl = "https://faciop-api.herokuapp.com/api/v1/goods/";
     const response = await app.$axios.$get(getUrl);
     console.log(response);
     return {
