@@ -27,7 +27,7 @@
         variant="outline-secondary"
         class="mb-4"
         :to="{ path: '/good', query: { dp: $route.query.dp } }"
-        >←商品詳細へ戻る</b-button
+        >←商品詳細に戻る</b-button
       >
     </div>
   </b-overlay>

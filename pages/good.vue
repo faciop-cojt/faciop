@@ -38,7 +38,7 @@
         </b-list-group-item>
         <b-list-group-item>
           <b-button variant="outline-secondary" :to="{ path: '/goods' }"
-            >←商品一覧へ戻る</b-button
+            >←商品一覧に戻る</b-button
           >
         </b-list-group-item>
       </b-list-group>
