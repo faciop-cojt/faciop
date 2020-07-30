@@ -27,16 +27,22 @@ export default Vue.extend({
   },
   data() {
     return {
-      isVisible: true,
       wrapperSize: {
         width: "0px",
         height: "0px"
       }
     };
   },
+  mounted() {
+  },
+  computed: {
+    isVisible(){
+      return this.$store.getters['FaceViewer/viewerVisible'];
+    }
+    
+  },
   methods: {
     videoSizeChanged(w: number, h: number): void {
-      console.log(w, h);
 
       this.wrapperSize = {
         width: w + "px",

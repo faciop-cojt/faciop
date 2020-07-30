@@ -23,7 +23,7 @@ export class FaceCanvas {
   private isCanvasSetted: boolean;
   private isCanvasSizeSetted: boolean;
 
-  private glasses?: THREE.Object3D;
+  private glasses: THREE.Object3D;
 
   constructor() {
     // initialize
@@ -39,10 +39,6 @@ export class FaceCanvas {
 
     let vertex_shader = "void main(){ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }"
     let frag_shader = "void main(){ gl_FragColor = vec4(0.0, 0.0, 0.0, 0.0); }"
-    // let face_mat = new THREE.MeshStandardMaterial({
-    //   color: "#fff",
-    //   visible: false
-    // });
     let face_mat = new THREE.ShaderMaterial({
       vertexShader: vertex_shader,
       fragmentShader: frag_shader
@@ -62,15 +58,21 @@ export class FaceCanvas {
     this.isCanvasSetted = false;
     this.isCanvasSizeSetted = false;
 
-    let loader = new GLTFLoader().load(
-      // "/faciop-face-detection-sandbox/glasses.glb",
-      "/glasses.glb",
+    this.glasses = new THREE.Object3D();
+    this.scene.add(this.glasses);
+
+  }
+
+  itemObjectLoad(path:string) {
+    new GLTFLoader().load(
+      path,
       (data)=>{
+        this.scene.remove(this.glasses);
         const gltf = data;
         this.glasses = gltf.scene;
         this.glasses.scale.set(4.7,4.5,4.7);
         this.scene.add(this.glasses);
-        console.log("glft loaded");
+        console.log("glb model loaded");
         
      },
      (xhr)=>{
@@ -81,8 +83,6 @@ export class FaceCanvas {
        
      }
     )
-
-
   }
 
   constructCanvas(): void {

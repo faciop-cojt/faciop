@@ -1,16 +1,38 @@
 <template>
   <div>
-    <ar-face-viewer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ArFaceViewer from '~/components/ARFaceViewer/ArFaceViewer.vue'
 
 export default Vue.extend({
-  components: {
-    ArFaceViewer
+  created() {
+    this.$store.dispatch('FaceViewer/changeViewerVisible');
+  },
+  mounted() {
+    const item_id = this.$route.query.id;
+    fetch('https://faciop-api.herokuapp.com/api/v1/goods/'+ item_id)
+    .then(res=>{
+      if(res.ok){
+        return res.json()
+      }
+    })
+    .then(data=>{
+      const path:string = 'https://faciop-api.herokuapp.com' + data.data.data;
+      // console.log(data.data.data);
+      this.$facecanvas.itemObjectLoad(path);
+      
+    })
+    .catch(err=>{
+      console.log(err);
+      
+    })
+
+    this.$nuxt.$emit('tryonMounted');
+  },
+  destroyed() {
+    this.$store.dispatch('FaceViewer/changeViewerInvisible');
   }
 })
 </script>

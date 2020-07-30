@@ -6,7 +6,6 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { log } from "@tensorflow/tfjs-core";
 
 export default Vue.extend({
   mounted() {
@@ -14,13 +13,19 @@ export default Vue.extend({
     this.$facemeshVideo.initVideoObject(video);
 
     video.onloadeddata = ev => {
-      this.$facecanvas.setCanvasSize(video.clientWidth, video.clientHeight);
-      console.log("video width", video.clientWidth);
+      console.log('onloaededata', video.videoWidth, video.videoHeight);
+      
+      
+      this.$facecanvas.setCanvasSize(video.videoWidth, video.videoHeight);
 
-      this.$emit('onSizeChanged', video.clientWidth, video.clientHeight);
+      this.$emit('onSizeChanged', video.videoWidth, video.videoHeight);
       
       this.loop(video);
     };
+
+    this.$nuxt.$on('tryonMounted',()=>{      
+      this.$emit('onSizeChanged', video.videoWidth, video.videoHeight);
+    })
   },
   methods: {
     loop(video: HTMLVideoElement) {
