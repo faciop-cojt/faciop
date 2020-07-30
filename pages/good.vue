@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <h1>商品詳細</h1>
     <div>
       <b-img
         center
@@ -37,7 +38,7 @@
         </b-list-group-item>
         <b-list-group-item>
           <b-button variant="outline-secondary" :to="{ path: '/goods' }"
-            >←商品一覧へ戻る</b-button
+            >←商品一覧に戻る</b-button
           >
         </b-list-group-item>
       </b-list-group>
