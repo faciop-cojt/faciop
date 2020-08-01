@@ -50,9 +50,7 @@ export default Vue.extend({
         }
       })
       .then(data => {
-        const path: string =
-          "https://faciop-api.herokuapp.com" + data.data.data;
-        // console.log(data.data);
+        const path: string = data.data.data;
         this.link = data.data.link;
         this.$facecanvas.itemObjectLoad(path);
       })
