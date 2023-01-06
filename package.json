@@ -18,7 +18,7 @@
     "@nuxtjs/axios": "^5.11.0",
     "bootstrap-vue": "^2.15.0",
     "cross-env": "^7.0.2",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.15.8",
     "@tensorflow-models/facemesh": "0.0.1",
     "@tensorflow/tfjs-backend-wasm": "^1.5.2-alpha1",
     "@tensorflow/tfjs-converter": "^1.6.1",
